@@ -1,0 +1,91 @@
+<body>
+<div class="whole-screen">
+
+<div class="succses-bar">
+  <% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+ </div>
+      <div class="errorsbar">
+        <% if @book.errors.any? %>
+          <h2><%= @book.errors.count %><strong>errors prohibited this book from being saved:</strong></h2>
+          <%= @book.errors.full_messages.each do |msg|%><br>
+            <%= msg %>
+          <% end %>
+        <% end %>
+        </div>
+
+<div class="container">
+<div class="row">
+<div class="col-xs-3">
+<div class="col-box">
+ <h2><strong>User info</strong></h2>
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %> 
+     <table class="userboxs">
+              <tr>
+                <th>name</th>
+                <th class="user-text-headline"><%= @user.name %></th>
+                </tr>
+                <tr>
+                <th>introduction
+                <th class="user-body"><%= @user.introduction %></th>
+              </tr>
+           </table> 
+    <%= link_to edit_user_path(@user.id),class: 'btn btn-primary btn-sm' do %>
+  <i class="glyphicon glyphicon-wrench"></i>
+ <% end %>
+</div>
+
+ <div class="col-box">
+    <h2 class="sidebar-headline"><strong>New book</strong></h2>
+      <div class="createbox-contents">
+      <%= form_for(@book) do |f| %>
+        <p>Title</p>
+        <%= f.text_field :title %>
+        <p>Opinion</p>
+        <%= f.text_area :body  %><br>
+        <%= f.submit 'Create Book',class: "btn btn-lg btn-base-3 mt-20 "%>
+     <% end %> 
+    </div>
+  </div>
+</div>
+
+ <div class="col-xs-9">
+<h2><strong>Books</strong></h2>
+      <div class="book-box">
+        <% @books.each do |book| %>
+          <div class="book-item clearfix">
+              <table>
+               <tr>
+                <th>Title</th>
+                 <th>Opinion</th>
+                 <th colspan="3"></th>
+                 </tr>
+                 <tr>
+                <td class="Book-text-headline"><%= link_to book_path(book),class: 'btn btn-default' do  %>
+                <%= book.title%>
+                <% end %>
+                </td>
+                <td class="Book-body"><%= book.body %></td>
+                </tr>
+              </table>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<footer>
+ <div class='container'>
+  <div class='row'>
+    <div class="footer-box1">
+    <p>CopyRight Infratop.inc</p>
+    </div>
+   </div>
+  </div>
+</footer>
+</div>
+</body>

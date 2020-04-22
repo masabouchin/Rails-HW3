@@ -1,0 +1,42 @@
+<div class="whole-screen2">
+<div class= "editbook-screen2">
+<div class="succses-bar">
+  <% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+ </div>
+
+<h2><strong>User info</strong></h2>
+<!-- form_for部分 -->
+<%= form_for(@user) do |f| %>
+ <div class="errorsbar">
+        <% if @user.errors.any? %>
+          <h2><%= @user.errors.count %><strong>errors prohibited this book from being saved:</strong></h2>
+          <%= @user.errors.full_messages.each do |msg|%><br>
+            <%= msg %>
+          <% end %>
+        <% end %>
+        </div>
+    <p>Name</p>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <p>Image</p><br>
+    <%= f.attachment_field :profile_image %>
+    <p>Introduction</p>
+    <%= f.text_area :introduction %><br>
+    <%= f.submit 'Update User' %>
+<% end %><br>
+
+
+
+<footer>
+ <div class='container'>
+  <div class='row'>
+    <div class="footer-box">
+    <p>CopyRight Infratop.inc</p>
+    </div>
+   </div>
+  </div>
+</footer>
+
+</div>
+</div>

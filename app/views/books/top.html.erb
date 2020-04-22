@@ -1,0 +1,28 @@
+ <body>
+ <p><%= flash[:notice] %></p>
+
+<div class="top-mainbox">
+<h1><strong> welcome to Bookers  !!</strong> </h1>
+<div class="subbox">
+<p>In <strong>  Bookers,</strong></p></div>
+     <p>you can share and exchange your opinions , inpressions , and emotions</p>
+
+     <p>about various books!</p><br>
+
+ 
+    <strong><%= link_to 'Log in', new_user_session_path,class:"btn btn-info btn-block" %><br>
+    <strong><%= link_to 'Sign Up',new_user_registration_path,class:"btn btn-info btn-block" %><br>
+    </div>
+    
+
+<footer>
+ <div class='container'>
+  <div class='row'>
+    <div class="footer-box">
+    <p>CopyRight Infratop.inc</p>
+    </div>
+   </div>
+  </div>
+</footer>
+
+</body>

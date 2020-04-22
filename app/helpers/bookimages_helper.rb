@@ -1,0 +1,2 @@
+module BookimagesHelper
+end
