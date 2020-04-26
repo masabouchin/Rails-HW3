@@ -1,19 +1,31 @@
  <body>
- <p><%= flash[:notice] %></p>
+
+ <div class="succses-bar">
+  <% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+ </div>
 
 <div class="top-mainbox">
 <h1><strong> welcome to Bookers  !!</strong> </h1>
 <div class="subbox">
-<p>In <strong>  Bookers,</strong></p></div>
+<p>In <span class="glyphicon glyphicon-book"></span>
+<strong>  Bookers,</strong></p>
+</div>
      <p>you can share and exchange your opinions , inpressions , and emotions</p>
 
      <p>about various books!</p><br>
+  </div>
+</div>
 
- 
-    <strong><%= link_to 'Log in', new_user_session_path,class:"btn btn-info btn-block" %><br>
-    <strong><%= link_to 'Sign Up',new_user_registration_path,class:"btn btn-info btn-block" %><br>
+<div class="btn-wrapper">
+ <div class="row2">
+    <strong><%= link_to 'Log in', new_user_session_path,class:"btn btn-info col-xs-10 col-xs-offset-1" %><br>
+    <strong><%= link_to 'Sign Up',new_user_registration_path,class:"btn btn-success col-xs-10 col-xs-offset-1" %><br>
     </div>
+  </div>
     
+</body>
 
 <footer>
  <div class='container'>
@@ -24,5 +36,3 @@
    </div>
   </div>
 </footer>
-
-</body>

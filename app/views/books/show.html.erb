@@ -1,5 +1,5 @@
 <body>
-<div class="whole-screen">
+<div class="container">
 
 <div class="succses-bar">
   <% if flash[:notice] %>
@@ -22,8 +22,7 @@
                 <th class="user-body"><%= @user.introduction %></th>
               </tr>
            </table>
-        <%= link_to edit_user_path(current_user),class: 'btn btn-primary btn-sm' do %>
-        <i class="glyphicon glyphicon-wrench"></i>
+        <%= link_to edit_user_path(current_user),class: 'col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_16066' do %>
       <% end %>
     </div>
 
@@ -40,45 +39,49 @@
         <% end %>
         </div>
         <p>Title</p>
-        <%= f.text_field :title %>
+        <%= f.text_field :title,class:"col-xs-12 book_title" %>
         <p>Opinion</p>
-        <%= f.text_area :body  %><br>
-        <%= f.submit 'Create Book',class: "btn btn-lg btn-base-3 mt-20 "%>
+        <%= f.text_area :body,class:"col-xs-12 book_body" %><br>
+        <%= f.submit 'Create Book',class: "btn btn-primary col-xs-12"%>
      <% end %> 
     </div>
   </div>
 </div>
 
 <div class="col-xs-9">
-<h2><strong>Book detail</strong></h2>
+  <h2><strong>Book detail</strong></h2>
       <div class="book-box">
           <div class="book-item clearfix">
-              <table>
+              <table class="table table-hover table-inverse">
+              <thead>
                <tr>
                 <th> "Title"</th>
                  <th>Opinion</th>
                   <th colspan="3"></th>
-                </tr>
-                <tr>
-                <td class="image-box"><%= link_to user_path(@userbook.user_id) do%>
-                 <%= attachment_image_tag @userbook.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg" %>
-                 <p><%=@user.name%></p>
-                 <%end%></td>
-                <td class="Book-text-headline"><%= link_to book_path(@userbook.id) do  %>
-                <%= @userbook.title%>
-                <% end %></td>
-                <td class="Book-body"><%= @userbook.body %></td>
-                <%if current_user == @user %>
-              <td class="book-item-edit2"><%= link_to "Edit",edit_book_path(@userbook)%></td>
-              <td class="book-item-edit3"><%= link_to "Destroy",book_path(@userbook),method: :delete , "data-confirm"=> "Are you sure?" %></td>
-              <%end%></td>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                  <td class="image-box"><%= link_to user_path(@userbook.user_id) do%>
+                  <%= attachment_image_tag @userbook.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg" %>
+                  <p><%=@user.name%></p>
+                  <%end%></td>
+                  <td class="Book-text-headline"><%= link_to book_path(@userbook.id) do  %>
+                  <%= @userbook.title%>
+                  <% end %></td>
+                 <td class="Book-body"><%= @userbook.body %></td>
+                 <%if current_user == @user %>
+                 <td class="book-item-edit2"><%= link_to "Edit",edit_book_path(@userbook)%></td>
+                <td class="book-item-edit3"><%= link_to "Destroy",book_path(@userbook),method: :delete , "data-confirm"=> "Are you sure?" %></td>
+                <%end%></td>
              </tr>
+             </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
-    </div>
+  </div>
 
 
 

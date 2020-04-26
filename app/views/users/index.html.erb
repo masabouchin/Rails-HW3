@@ -1,5 +1,5 @@
 <body>
-<div class="whole-screen">
+<div class="container">
 
 <div class="succses-bar">
   <% if flash[:notice] %>
@@ -23,8 +23,7 @@
                 <th class="user-body"><%= @user.introduction %></th>
               </tr>
            </table> 
-    <%= link_to edit_user_path(current_user),class: 'btn btn-primary btn-sm' do %>
-     <i class="glyphicon glyphicon-wrench"></i>
+    <%= link_to edit_user_path(current_user),class: 'col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_16066' do %>
   <% end %>
 </div>
   
@@ -41,10 +40,10 @@
         <% end %>
         </div>
         <p>Title</p>
-        <%= f.text_field :title %>
+        <%= f.text_field :title,class:"col-xs-12 book_title" %>
         <p>Opinion</p>
-        <%= f.text_area :body  %><br>
-        <%= f.submit 'Create Book',class: "btn btn-lg btn-base-3 mt-20 "%>
+        <%= f.text_area :body,class:"col-xs-12 book_body" %><br>
+        <%= f.submit 'Create Book',class: "btn btn-primary col-xs-12 "%>
      <% end %> 
     </div>
    </div>

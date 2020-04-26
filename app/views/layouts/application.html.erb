@@ -9,57 +9,55 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-
 <nav class="navbar navbar-inverse">
         <div class="container relative">
           <div id="slidemenu">
           <div class="slidefont">
           <span><h2>Bookers</h2></span>
           </div>
-            <tr class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+            <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
              <% if user_signed_in? %>
-              <th class="">
+              <li class="">
               <span class="glyphicon glyphicon-home" aria-hidden="true">
-               <strong><%= link_to "Home",user_path(current_user.id) %></strong>
-               </th>
-               <th class="">
+               <%= link_to "Home",user_path(current_user.id) %>
+               </li>
+               <li class="">
                <span class="glyphicon glyphicon-user" aria-hidden="true">
-               <strong><%= link_to "Users",users_path %></strong>
-                </th>
-                <th class="">
+               <%= link_to "Users",users_path %>
+                </li>
+                <li class="">
                 <span class="glyphicon glyphicon-book" aria-hidden="true">
-                 <strong><%= link_to "Books" ,books_path %></strong>
-                </th>
-                <th class="">
+                 <%= link_to "Books" ,books_path %>
+                </li>
+                <li class="">
                 <span class="lyphicon glyphicon-log-out" aria-hidden="true">
-               <strong><%= link_to "logout",destroy_user_session_path, method: :delete %></strong>
-               </th>
+               <%= link_to "logout",destroy_user_session_path, method: :delete %>
+               </li>
                 <% else %>
-               <th class="">
+               <li class="">
                <span class="glyphicon glyphicon-home" aria-hidden="true">
-              <strong><%= link_to "Home",root_path %></strong>
-              </th>
-             <th class="">
+               <%= link_to "Home",root_path %>
+              </li>
+             <li class="">
              <span class="glyphicon glyphicon-link" aria-hidden="true">
-             <strong><%= link_to "About",home_about_path %></strong>
-            </th>
-            <th class="">
+             <%= link_to "About",home_about_path %>
+             </li>
+            <li class="">
             <span class="glyphicon glyphicon-edit" aria-hidden="true">
-            <strong><%= link_to "Sign up",new_user_registration_path%></strong>
-            </th>
-            <th class="">
+            <%= link_to "Sign up",new_user_registration_path%>
+            </li>
+            <li class="">
             <span class="glyphicon glyphicon-log-in" aria-hidden="true">
-            <strong><%= link_to "login",new_user_session_path %><strong>
-            </th>
+            <%= link_to "login",new_user_session_path %>
+            </li>
             </span>
-            <% end %>
-            </tr>
-          </div>
-    </div>
-    <%= yield %>
-
-
+            <% end %>    
+          </ul>
+        </div>
+      </div>
     </nav>
+
+    <body>
+    <%= yield %>
   </body>
 </html>
