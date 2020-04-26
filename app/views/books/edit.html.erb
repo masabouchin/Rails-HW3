@@ -1,4 +1,6 @@
-<div class="container">
+<div class="body">
+ <div class="container">
+  <div class="row">
 
 <div class= "editbook-screen">
 <div class="succses-bar">
@@ -20,26 +22,18 @@
         </div>
   <div class="editing_nav">
     <p>Title</p>
-    <%= f.text_field :title %>
+    <%= f.text_field :title,class:"col-xs-12 book_title" %>
     <p>Opinion</p>
-    <%= f.text_area :body %><br>
-    <%= f.submit "Update Book", class: "btn btn-primary btn-sm  " %>
+    <%= f.text_area :body,class:"col-xs-12 book_body" %><br>
+    <%= f.submit "Update Book", class: "btn-sm btn-danger destroy_book_26157 " %>
 <% end %><br>
 </div>
 
 <%= link_to "Show", book_path(@book.id) %>
+|
 <%= link_to "Back", books_path %>
 
-
-<footer>
- <div class='container'>
-  <div class='row'>
-    <div class="footer-box1">
-    <p>CopyRight Infratop.inc</p>
-    </div>
    </div>
   </div>
-</footer>
-
-</div>
+ </div>
 </div>
